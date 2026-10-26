@@ -12,7 +12,7 @@ load_dotenv(Path(__file__).with_name(".env"))
 app = Flask(__name__, static_folder="frontend", static_url_path="")
 app.json.ensure_ascii = False
 
-DATA_FILE = Path(__file__).parent / "data" / "conversations.json"
+DATA_FILE = Path(os.getenv("LAB5_DATA_DIR", Path(__file__).parent / "data")) / "conversations.json"
 
 
 def load_conversations():
