@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 聊天助手</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="会话列表">
+        <div class="sidebar-header">
+          <div>
+            <h1>AI 聊天助手</h1>
+            <p>多会话 · 多轮对话</p>
+          </div>
+          <button id="new-conversation-button" class="primary-button" type="button">
+            新建会话
+          </button>
+        </div>
+        <div id="conversation-list" class="conversation-list"></div>
+      </aside>
+
+      <section class="chat-panel" aria-label="当前会话">
+        <header class="chat-header">
+          <div>
+            <h2 id="conversation-title">请选择或新建会话</h2>
+            <p id="conversation-meta">不同会话的历史消息彼此独立</p>
+          </div>
+          <div id="conversation-actions" class="conversation-actions" hidden>
+            <button id="rename-button" class="text-button" type="button">重命名</button>
+            <button id="delete-button" class="text-button danger" type="button">删除</button>
+          </div>
+        </header>
+
+        <div id="inline-panel" class="inline-panel" hidden></div>
+        <div id="message-list" class="message-list" aria-live="polite"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+
+        <form id="message-form" class="composer">
+          <label for="message-input">输入消息</label>
+          <div class="composer-row">
+            <textarea
+              id="message-input"
+              name="message"
+              rows="2"
+              placeholder="在当前会话中继续提问……"
+              required
+              disabled
+            ></textarea>
+            <button type="submit" class="send-button" disabled>发送</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
